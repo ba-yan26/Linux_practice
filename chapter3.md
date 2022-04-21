@@ -97,3 +97,27 @@ $ cat /etc/hostname /etc/hosts
 `rm -f file`
 - -i：ファイルの削除前に確認する
 `rm -i file`
+
+----
+
+## 7.ファイルの移動、ファイル名の変更をしよう
+
+#### mvコマンド
+- ファイルの移動、ファイル名を変更するコマンド
+  - 何の略？：move
+  - 書式：mv [オプション] <移動元>... <移動先>
+  - 具体例：
+  ```
+  mkdir dir
+  touch file
+
+  # ファイル名を変更
+  mv file file1
+
+  # ファイルを移動
+  mv file1 dir/
+  ```
+
+#### オプション
+- -i：上書きをする前に確認する
+`mv -i file file1`
