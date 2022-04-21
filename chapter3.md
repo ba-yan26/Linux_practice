@@ -170,3 +170,46 @@ $ cat /etc/hostname /etc/hosts
 #### どう言う時に使う？
 - 長いパス名を省略したい時
 - 複数バージョンを共存させ最新を区別したい時
+
+
+----
+
+## 10.ファイルを検索しよう
+
+#### findコマンド
+- ファイルを検索するコマンド
+  - 何の略？：find
+  - 書式：find <検索開始ディレクトリ> <検索条件> <アクション>
+  - 具体例：find . -name README.md -print
+    - -print：パス名を表示する
+
+#### よく使われる検索条件
+- -name：ファイル名を指定してファイルを検索。ファイル名の大文字小文字は区別する
+```
+find . -name README.md
+
+# ワイルドカードが使える。*を使って指定するときは''で囲うこと
+find . -name '*.html' -print
+```
+
+- iname：ファイル名を指定してファイルを検索。ファイル名の大文字小文字は区別しない
+```
+find . -iname reademe.md
+```
+
+- -type：ファイルの種類で検索
+```
+# -type f は通常ファイル
+find . -type f -print
+
+# -type l はシンボリックリンク
+find . -type l -print
+
+# -type d はディレクトリ
+find . -type d -print
+```
+
+- -a：複数の検索条件を指定。なお、-aは省略可能
+```
+find . -type d -a -name images -print
+```
